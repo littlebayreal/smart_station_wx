@@ -1,0 +1,27 @@
+/**index.wxss**/
+.image_title{
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+}
+.input_label{
+  float: left;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+.input_c{
+  float: left;
+  margin-left: 10rpx;
+  padding-left: 10rpx;
+  height: 80rpx;
+  width: 500rpx;
+  border: 1px #dedede solid;
+}
+.margin_top_10{
+  margin-top: 10rpx;
+}
+.login_button{
+  width: 96%;
+  justify-items: flex-end;
+  margin: 120rpx;
+}

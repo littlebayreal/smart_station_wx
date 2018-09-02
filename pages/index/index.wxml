@@ -1,0 +1,61 @@
+<!--index.wxml-->
+<view class="box">
+<view class='header'>
+<view class='header_left'>
+  <image class="header_img" src="../../image/icon_user.png" mode='cover'></image>
+</view>
+<view class='header_right'>
+<text id='username_show'>admin</text>
+<text id='depart_show' decode='{{true}}'>智能&nbsp;&nbsp;&nbsp;&nbsp;科员</text>
+</view>
+</view>
+<view class='my_job'>
+<text>我的待办事项</text>
+</view>
+<view class='my_job_content'>
+ <view class='my_job_item' bindtap='clickListener' data-name='问题审核'>
+  <image class="my_job_item_image" src='../../image/icon_warning.png'></image>
+  <text class="my_job_item_text">问题审核</text>
+ </view>
+ <view class='my_job_item' bindtap='clickListener' data-name='计划分配'>
+  <image class="my_job_item_image" src='../../image/icon_warning.png'></image>
+  <text class="my_job_item_text">计划分配</text>
+ </view>
+ <view class='my_job_item' bindtap='clickListener' data-name='维修上报'>
+  <image class="my_job_item_image" src='../../image/icon_warning.png'></image>
+  <text class="my_job_item_text">维修上报</text>
+ </view>
+ <view class='my_job_item' bindtap='clickListener' data-name='维修审核'>
+  <image class="my_job_item_image" src='../../image/icon_warning.png'></image>
+  <text class="my_job_item_text">维修审核</text>
+ </view>
+ <view class='my_job_item' bindtap='clickListener' data-name='巡检计划'>
+  <image class="my_job_item_image" src='../../image/icon_warning.png'></image>
+  <text class="my_job_item_text">巡检计划</text>
+ </view>
+</view>
+<block wx:for="{{MenuList}}">
+   <view class="my_job">{{item.MenuName}}</view>
+   <block wx:if="{{item.SubMenuList.length > 0}}">
+     <view class="my_job_submenu">
+     <block wx:for="{{item.SubMenuList}}">
+       <view class="my_job_submenu_item" bindtap='clickListener'>
+       <image class='my_job_submenu_item_img' src='../../image/icon_document_plus.png'></image>
+       <text class='my_job_submenu_item_txt'>{{item.MenuName}}</text>
+       </view>
+     </block>
+     </view>
+   </block>
+</block>
+</view>
+<!-- <view class="userinfo">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </block>
+</view>
+<view class="usermotto">
+  <text class="user-motto">{{motto}}</text>
+</view> -->
+<!-- </view> -->

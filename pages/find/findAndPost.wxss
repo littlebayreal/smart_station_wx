@@ -1,0 +1,54 @@
+/* pages/find/findAndPost.wxss */
+.report_one{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 40rpx;
+}
+.report_one_txt{
+  padding: 10rpx;
+}
+.report_one_input{
+  border: 1rpx #d5d5d5 solid;
+  width: 430rpx;
+  padding: 10rpx;
+}
+.ph_class{
+  text-align: left;
+  vertical-align: text-top;
+}
+.report_two_input{
+   border: 1rpx #d5d5d5 solid;
+   padding: 10rpx;
+   width: 430rpx;
+   height: 160rpx;
+}
+.report_two{
+   align-self: flex-start;
+   margin-left: 60rpx;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start; 
+   align-items: flex-start;
+}
+.report_upload_img{
+   width: 120rpx;
+   height: 120rpx;
+   padding: 10rpx;
+}
+.img_show{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.q_img{
+  width: 150rpx;
+  height: 150rpx;
+  margin: 10rpx;
+}
+.delete_button{
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  right: 40rpx;
+}

@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+ <view>
+   <image src='{{imageurl}}' class="image_title" mode='cover'></image>
+ </view>
+ <view>
+   <label class='input_label'>用户名</label>
+   <input class='input_c' type='text' bindinput='inputListener'></input>
+ </view>
+ <view class="margin_top_10">
+   <text class='input_label' decode='{{true}}'>密&nbsp;&nbsp;&nbsp;&nbsp;码</text>
+   <input class='input_c' password='true' bindblur='passwordListener'></input>
+ </view>
+ <button class="login_button" bindtap='login'>登录</button>
+</view>

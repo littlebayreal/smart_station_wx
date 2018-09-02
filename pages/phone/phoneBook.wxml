@@ -1,0 +1,27 @@
+<!--pages/phone/phoneBook.wxml-->
+<view class='box'>
+  <view class='search_view'>
+  <input class='search_input' type='text' placeholder='输入联系人姓名'></input>
+  <image class='search_img' src='../../image/search.png'></image>
+  </view>
+  <view class='contact_box'>
+  <view class='contact_list'>
+   <scroll-view class="scroll_view_class" style="height:{{scrollHeight}}px;" scroll-y="true" scroll-into-view="{{scrollIndex}}">
+     <block wx:for="{{groups}}" wx:for-item="group">
+       <view class='letter_index_view' id='{{group.groupName}}'>{{group.groupName}}</view>
+       <block wx:for="{{group.users}}" wx:for-item="user">
+         <view class='user_view'>
+           <image class='user_view_img' src="{{user.avatar}}"></image>
+           <text class='user_view_txt'>{{user.name}}</text>
+         </view>
+        </block>
+     </block>
+   </scroll-view>
+  </view>
+  <view class='contact_sidebar' bindtouchmove='touchSideBar' bindtap='touchSideBar'>
+     <block wx:for="{{letters}}" wx:for-item="letter">
+     <view class='contact_sidebar_item'>{{letter}}</view>
+     </block>
+  </view>
+  </view>
+</view>

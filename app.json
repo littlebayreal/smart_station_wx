@@ -1,0 +1,46 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/find/findAndPost",
+    "pages/phone/phoneBook",
+    "pages/center/personCenter",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "智慧场站",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#cdcdcd",
+    "selectedColor": "#ec6376",
+    "borderStyle": "#f3c4cb",
+    "list": [
+      {
+        "selectedIconPath": "image/icon_home_checked.png",
+        "iconPath": "image/icon_home.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "image/icon_photo_checked.png",
+        "iconPath": "image/icon_photo.png",
+        "pagePath": "pages/find/findAndPost",
+        "text": "发现上报"
+      },
+      {
+        "selectedIconPath": "image/dailymanagement1.png",
+        "iconPath": "image/dailymanagement0.png",
+        "pagePath": "pages/phone/phoneBook",
+        "text": "电话簿"
+      },
+      {
+        "selectedIconPath": "image/watch_1.png",
+        "iconPath": "image/watch_0.png",
+        "pagePath": "pages/center/personCenter",
+        "text": "个人中心"
+      }
+    ]
+  }
+}
