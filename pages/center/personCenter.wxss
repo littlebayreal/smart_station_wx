@@ -1,1 +1,72 @@
 /* pages/center/personCenter.wxss */
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 40rpx 0;
+  background-color:#4783b8;
+  width: 100%;
+}
+.header_img{
+  height: 220rpx;
+  width: 220rpx;
+  background-color: #fff;
+  margin-left: 40rpx;
+}
+.header_right{
+  display: flex;
+  height: 200rpx;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+}
+.list_box{
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color:  #fbf9fe;
+}
+.list_item_view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx;
+  margin: 30rpx 30rpx 0 30rpx;
+  border-radius: 4rpx;
+  cursor: pointer;
+  background-color: #fff;
+}
+.item_txt{
+  text-align: center;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+.item_img{
+  width: 32rpx;
+  height: 32rpx;
+  transform: rotate(90deg);
+}
+.sub_item_view{
+  padding: 10rpx;
+  margin: 0 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  background-color: #fff;
+}
+.sub_item_line{
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rpx;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+.sub_item_name{
+  flex-grow: 2;
+}
+.sub_item_phone{
+  width: 70rpx;
+}

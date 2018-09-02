@@ -1,2 +1,30 @@
 <!--pages/center/personCenter.wxml-->
-<text>我叫周小北啊啊啊</text>
+<view class="box">
+  <view class='header'>
+    <view class='header_left'>
+      <image class="header_img" src="../../image/icon_user.png" mode='cover'></image>
+    </view>
+    <view class='header_right'>
+      <text id='username_show'>admin</text>
+      <text id='depart_show' decode='{{true}}'>智能&nbsp;&nbsp;&nbsp;&nbsp;科员</text>
+    </view>
+  </view>
+  <view class='list_box'>
+    <block wx:for="{{list}}" wx:for-item="item">
+      <view class='list_item_view'>
+        <text class='item_txt'>{{item.name}}</text>
+        <image src='../../image/arrowright.png' class="item_img"></image>
+      </view>
+      <block wx:if="{{item.open}}">
+        <block wx:for="{{item.subName}}" wx:for-item="sub_item" wx:for-index="index">
+          <view class="sub_item_view">
+            <view class='sub_item_line'></view>
+            <text class='sub_item_name'>{{sub_item}}</text>
+            <text class='sub_item_phone'>{{item.phone[index]}}</text>
+            <view class='subh_item_line'></view>
+          </view>
+        </block>
+      </block>
+    </block>
+  </view>
+</view>
