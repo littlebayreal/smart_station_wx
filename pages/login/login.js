@@ -35,7 +35,7 @@ Page({
           UserAccount:that.data.userAccount,
           UserPassword:that.data.userPassword
         },
-        url: 'http://192.168.207.224:8804/api/Login',
+        url: 'http://222.92.189.87:24031/api/Login',
         method:'get',
         success:function(res){
           if (res.data.Success == true) {
@@ -43,6 +43,7 @@ Page({
               title: '登陆成功',
               duration:2000
             })
+            app.globalData.loginData=res.data;
             wx.switchTab({
               url: '../index/index',
             })

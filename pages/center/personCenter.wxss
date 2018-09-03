@@ -42,9 +42,17 @@
   text-align: center;
   font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
 }
+.item_open{
+
+}
+.item_open .item_img{
+  transition: transform 0.4s;
+  transform: rotate(-90deg);
+}
 .item_img{
   width: 32rpx;
   height: 32rpx;
+  transition: transform 0.4s;
   transform: rotate(90deg);
 }
 .sub_item_view{
@@ -65,8 +73,13 @@
   background-color: #f0f0f0;
 }
 .sub_item_name{
-  flex-grow: 2;
+  width: 50%;
+  align-self: flex-start;
+  font-size: 28rpx;
 }
 .sub_item_phone{
-  width: 70rpx;
+  width: 50%;
+  align-self: flex-end;
+  text-align: right;
+  font-size: 28rpx;
 }

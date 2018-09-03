@@ -3,9 +3,7 @@
   <view class="report_one">
     <text class="report_one_txt">上报分类:</text>
     <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
-      <view>
-        <input type="text" class="report_one_input" placeholder='请选择上报分类' placeholder-class="ph_class" disabled="true" value="{{uploadClassValue}}"></input>
-      </view>
+      <input type="text" class="report_one_input" placeholder='请选择上报分类' placeholder-class="ph_class" disabled="true" value="{{uploadClassValue}}"></input>
     </picker>
   </view>
   <view class="report_one">
@@ -14,7 +12,9 @@
   </view>
   <view class="report_one">
     <text class="report_one_txt">上报站台:</text>
-    <input type="text" class="report_one_input" placeholder='请选择上报站台' placeholder-class="ph_class"></input>
+    <picker bindchange="bindeCasPickerStation" value="{{stationIndex}}" range="{{stationArray}}" bindtap='initStationArray'>
+      <input type="text" class="report_one_input" placeholder='请选择上报站台' placeholder-class="ph_class" disabled='true' value='{{uploadStationValue}}'></input>
+    </picker>
   </view>
   <view class="report_one">
     <text class="report_one_txt">内容说明:</text>

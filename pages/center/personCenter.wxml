@@ -11,7 +11,7 @@
   </view>
   <view class='list_box'>
     <block wx:for="{{list}}" wx:for-item="item">
-      <view class='list_item_view'>
+      <view id="{{item.id}}" class="list_item_view {{item.open?'item_open':''}}" bindtap='toggleView'>
         <text class='item_txt'>{{item.name}}</text>
         <image src='../../image/arrowright.png' class="item_img"></image>
       </view>

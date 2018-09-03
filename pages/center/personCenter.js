@@ -1,4 +1,5 @@
 // pages/center/personCenter.js
+var that;
 Page({
 
   /**
@@ -54,12 +55,23 @@ Page({
       }
     ]
   },
-
+  toggleView:function(e){
+    var id = e.currentTarget.id;
+    console.log("id："+id);
+    for(let i=0;i<that.data.list.length;i++){
+      if (id == that.data.list[i].id){
+        that.data.list[i].open = !that.data.list[i].open;
+      }
+    }
+    that.setData({
+       list:that.data.list
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    that = this;
   },
 
   /**
