@@ -128,10 +128,13 @@ Page({
     var name = e.currentTarget.dataset.name;
     switch (name) {
       case "问题审核":
-        wx.showModal({
-          title: '提示',
-          content: '点击了问题审核',
+        wx.navigateTo({
+          url: '../maintenanceApplication/maintenanceApplicationList',
         })
+        // wx.showModal({
+        //   title: '提示',
+        //   content: '点击了问题审核',
+        // })
         break;
       case "计划分配":
         wx.showModal({

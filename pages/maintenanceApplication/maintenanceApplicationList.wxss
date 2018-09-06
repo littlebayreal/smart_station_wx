@@ -1,0 +1,24 @@
+/* pages/maintenanceApplication/maintenanceApplicationList.wxss */
+.maintenance_item_view{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom: 1rpx #d5d5d5 solid;
+}
+.maintenance_item_top{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10rpx;
+  height: 100rpx;
+}
+.maintenance_item_text_left{
+  text-align: center;
+}
+.maintenance_item_text_right{
+  text-align: center;
+}
+.maintenance_item_bottom{
+  padding: 10rpx;
+}

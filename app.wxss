@@ -1,4 +1,8 @@
 /**app.wxss**/
+page{
+  height: 100%;
+  background-color: #d6d6d6;
+}
 .container {
   height: 100%;
   display: flex;
@@ -7,10 +11,12 @@
   justify-content: space-between;
   padding: 200rpx 0;
   box-sizing: border-box;
+  background-color: #fff;
 } 
 .box{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-color: #fff;
 }

@@ -36,6 +36,7 @@ App({
   globalData: {
     userInfo: null,
     ApplicationID: '210E0809-2342-409D-9112-F5BE15E00E34',
-    loginData:null
+    loginData:null,
+    baseurl:'http://192.168.210.217/'
   }
 })

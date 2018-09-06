@@ -5,13 +5,16 @@
     "pages/find/findAndPost",
     "pages/phone/phoneBook",
     "pages/center/personCenter",
+    "pages/maintenanceApplication/maintenanceApplicationList",
+    "pages/maintenanceApplication/maintenanceListDetail",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "智慧场站",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh":true
   },
   "tabBar": {
     "color": "#cdcdcd",

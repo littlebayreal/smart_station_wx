@@ -8,21 +8,21 @@
   </view>
   <view class="report_one">
     <text class="report_one_txt">上报内容:</text>
-    <input type="text" class="report_one_input" placeholder='请选择上报内容 ' placeholder-class="ph_class"></input>
+    <input id="uploadcontent" type="text" class="report_one_input" placeholder='请选择上报内容 ' placeholder-class="ph_class" bindinput='inputListener'></input>
   </view>
   <view class="report_one">
     <text class="report_one_txt">上报站台:</text>
-    <picker bindchange="bindeCasPickerStation" value="{{stationIndex}}" range="{{stationArray}}" bindtap='initStationArray'>
+    <picker bindchange="bindCasPickerStation" value="{{stationIndex}}" range="{{stationArray}}">
       <input type="text" class="report_one_input" placeholder='请选择上报站台' placeholder-class="ph_class" disabled='true' value='{{uploadStationValue}}'></input>
     </picker>
   </view>
   <view class="report_one">
     <text class="report_one_txt">内容说明:</text>
-    <textarea class="report_two_input" placeholder='请填写内容说明' placeholder-class="ph_class"></textarea>
+    <textarea id="contentcomplain" class="report_two_input" placeholder='请填写内容说明' placeholder-class="ph_class" bindinput='inputListener'></textarea>
   </view>
   <view class="report_one">
     <text class="report_one_txt">意见建议:</text>
-    <textarea class="report_two_input" placeholder='请填写意见建议' placeholder-class="ph_class"></textarea>
+    <textarea id="advance" class="report_two_input" placeholder='请填写意见建议' placeholder-class="ph_class" bindinput='inputListener'></textarea>
   </view>
   <view class='report_two'>
     <text class='report_one_txt'>添加图片:</text>
@@ -41,4 +41,5 @@
       <image class="report_upload_img" src='../../image/upload_image_icon.png' bindtap='uploadImg'></image>
     </block>
   </view>
+  <button class='submit_class' bindtap='submitForm'>提交</button>
 </view>

@@ -8,7 +8,9 @@ Page({
   data: {
     img: [],
     casArray: ['站牌缺损', '实时损坏', '广告画面', '卫生状况'],
-    uploadClassValue: ""
+    uploadClassValue: "",
+    uploadIndex:0,
+    SavedFileInfos:"",
   },
   uploadImg: function(e) {
     wx.chooseImage({
@@ -51,16 +53,17 @@ Page({
         LatitudeOfPosition: '31.281090'
       },
       method: 'GET',
-      url: 'http://222.92.189.87:24031/api/Facility/GetStopListWithinTheRadiusByPosition',
+      url: getApp().globalData.baseurl+'api/Facility/GetStopListWithinTheRadiusByPosition',
       success: function(res) {
         if (res.data != null) {
-          console.log("刷新页面" + res.data[0].StopName);
+          console.log("刷新页面" + res.data[0].StopDisplayName);
           var temp = [];
           for(var i=0;i<res.data.length;i++){
-              temp.push(res.data[i].StopName);
+            temp.push(res.data[i].StopDisplayName);
           }
           that.setData({
-            stationArray:temp
+            stationArray:temp,
+            stationDataArray:res.data
           })
         }
       },
@@ -70,19 +73,112 @@ Page({
     })
   },
   bindCasPickerStation: function(e) {
-
+    that.setData({
+      stationIndex: e.detail.value,
+      uploadStationValue:that.data.stationArray[e.detail.value]
+    })
   },
   bindCasPickerChange: function(e) {
     that.setData({
-      uploadClassValue: that.data.casArray[e.detail.value]
+      uploadClassValue:that.data.casArray[e.detail.value]
     })
   },
+  submitForm:function(){
+    wx.showModal({
+      title: '提示',
+      content: '确认提交当前内容吗？',
+      success:function(res){
+        that.up();
+      },
+      fail:function(res){
 
+      }
+    })
+  },
+  up:function(){
+    wx.uploadFile({
+      url: getApp().globalData.baseurl+'api/FileUpload',
+      filePath: that.data.img[that.data.uploadIndex],
+      name: 'img',
+      header: {
+        'token': app.globalData.loginData.Token,
+        'applicationID': app.globalData.ApplicationID,
+        'userID': app.globalData.loginData.UserID
+      },
+      success:function(res){
+        // console.log(res);
+        that.data.uploadIndex++;
+        //拼接图片信息
+        that.setData({
+          SavedFileInfos: that.data.SavedFileInfos+JSON.parse(res.data).SavedFileInfo
+        });
+        console.log(that.data.SavedFileInfos);
+        //所有图片上传完成
+        if (that.data.uploadIndex == that.data.img.length) {
+          //上传表单数据
+          that.upForm();
+        } else {
+          that.up();
+        }
+      },
+      complete: function (complete){
+        
+      }
+    })
+  },
+  upForm:function(){
+    // console.log("MaintenanceCategory:" + that.data.uploadClassValue
+    //   + "MaintenanceContent:" + that.data.uploadcontent
+    //   + "UploadAttachmentInfo:" + that.data.SavedFileInfos
+    //   + "MaintenanceObjectID:" + that.data.stationArray[that.data.stationIndex]
+    //   + "ApplicationDescription:" + that.data.contentcomplain
+    //   + "Suggestion:" + that.data.advance + "RequestedBy:" + getApp().globalData.loginData.UserID);
+    console.log(that.data.stationIndex);
+     wx.request({
+       url: getApp().globalData.baseurl +'api/Maintenance/SubmitMaintenanceApplicationFromApp',
+       header: {
+         'token': app.globalData.loginData.Token,
+         'applicationID': app.globalData.ApplicationID,
+         'userID': app.globalData.loginData.UserID
+       },
+       data: {
+         'MaintenanceCategory': that.data.uploadClassValue,
+         'MaintenanceContent': that.data.uploadcontent,
+         'UploadAttachmentInfo':that.data.SavedFileInfos,
+         'MaintenanceObjectID': that.data.stationDataArray[that.data.stationIndex].StopID,
+         'ApplicationDescription': that.data.contentcomplain,
+         'Suggestion':that.data.advance,
+         'RequestedBy':getApp().globalData.loginData.UserID
+       },
+       method: 'POST',
+     })
+  },
+  inputListener:function(e){
+    var id = e.currentTarget.id;
+    switch(id){
+      case 'uploadcontent':
+       that.setData({
+         uploadcontent:e.detail.value
+       })
+      break;
+      case 'contentcomplain':
+        that.setData({
+          contentcomplain:e.detail.value
+        })
+        break;
+      case 'advance':
+        that.setData({
+          advance:e.detail.value
+        })
+        break;
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     that = this;
+    that.initStationArray();
   },
 
   /**
@@ -117,7 +213,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    console.log("onpulldownrefresh stationArray");
+    wx.stopPullDownRefresh();
+    that.initStationArray();
   },
 
   /**

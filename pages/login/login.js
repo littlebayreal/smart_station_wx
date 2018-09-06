@@ -35,7 +35,7 @@ Page({
           UserAccount:that.data.userAccount,
           UserPassword:that.data.userPassword
         },
-        url: 'http://222.92.189.87:24031/api/Login',
+        url: getApp().globalData.baseurl+'api/Login',
         method:'get',
         success:function(res){
           if (res.data.Success == true) {

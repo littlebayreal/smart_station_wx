@@ -1,0 +1,60 @@
+<!--pages/maintenanceApplication/maintenanceListDetail.wxml-->
+<view class='box'>
+  <view class='input_one'>
+    <text class="report_one_txt">上报分类:</text>
+    <text class="report_one_input" value="{{uploadClassValue}}"></text>
+  </view>
+  <view class='input_one'>
+    <text class="report_one_txt">上报内容:</text>
+    <text class="report_one_input" value="{{uploadContent}}"></text>
+  </view>
+  <view class='input_one'>
+    <text class="report_one_txt">站点名称:</text>
+    <text class="report_one_input" value="{{uploadStation}}"></text>
+  </view>
+  <view class='input_one'>
+    <text class="report_one_txt">内容说明:</text>
+    <text class="report_one_input" value="{{contentComplain}}"></text>
+  </view>
+  <view class='input_one'>
+    <text class="report_one_txt">意见建议:</text>
+    <text class="report_one_input" value="{{advance}}"></text>
+  </view>
+  <view class="imgshow">
+    <block wx:for="{{imgs}}" wx:for-item="img">
+      <image class='image_item_show' src='{{img}}'></image>
+    </block>
+  </view>
+  <view class='box_bottom'>
+    <view class='box_bottom_top'>
+      <text class='box_bottom_text'>审核</text>
+    </view>
+    <view class="input_one">
+      <text class="report_one_txt">计划维修时间:</text>
+      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
+        <input type="text" class="report_one_input" placeholder='请选择开始时间' placeholder-class="ph_class" disabled="true" value="{{planStartTime}}"></input>
+      </picker>
+    </view>
+    <view class="input_one">
+      <text class="report_one_txt">计划竣工时间:</text>
+      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
+        <input type="text" class="report_one_input" placeholder='请选择竣工时间' placeholder-class="ph_class" disabled="true" value="{{planEndTime}}"></input>
+      </picker>
+    </view>
+    <view class="input_one">
+      <text class="report_one_txt" decode='{{true}}'>单位:</text>
+      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
+        <input type="text" class="report_one_input" placeholder='请选择单位' placeholder-class="ph_class" disabled="true" value="{{unit}}"></input>
+      </picker>
+    </view>
+    <view class="input_one">
+      <text class="report_one_txt" decode='{{true}}'>维修人员姓名:</text>
+      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
+        <input type="text" class="report_one_input" placeholder='请选择维修人员' placeholder-class="ph_class" disabled="true" value="{{fixName}}"></input>
+      </picker>
+    </view>
+  </view>
+  <view class='modal-box'>
+   
+  </view>
+</view>

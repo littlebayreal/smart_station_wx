@@ -1,0 +1,12 @@
+<!--pages/maintenanceApplication/maintenanceApplicationList.wxml-->
+<view class='box'>
+  <block wx:for="{{maintenanceList}}" wx:for-item="item">
+    <view class="maintenance_item_view" data-itemview='{{item}}' bindtap='itemListener'>
+    <view class="maintenance_item_top">
+      <text class='maintenance_item_text_left'>{{item.StopName}}</text>
+      <text class='maintenance_item_text_right'>{{item.MaintenanceCategory}}</text>
+    </view>
+    <text class='maintenance_item_bottom'>{{item.AppliedByName}}</text>
+  </view>
+  </block>
+</view>

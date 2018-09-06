@@ -1,0 +1,47 @@
+/* pages/maintenanceApplication/maintenanceListDetail.wxss */
+.input_one{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10rpx;
+}
+.report_one_txt{
+  padding: 10rpx;
+}
+.report_one_input{
+  border: 1rpx #d5d5d5 solid;
+  width: 430rpx;
+  padding: 10rpx;
+  height: 50rpx;
+}
+.imgshow{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 10rpx;
+  padding: 10rpx 0 0 80rpx;
+}
+.image_item_show{
+  width: 120rpx;
+  height: 120rpx;
+  flex-wrap: wrap;
+  margin: 10rpx;
+}
+.box_bottom{
+  width: 100%;
+  background-color: #d6d6d6
+}
+.ph_class{
+  text-align: left;
+  vertical-align: text-top;
+}
+.box_bottom_top{
+  width: 100%;
+  text-align: center;
+}
+.box_bottom_text{
+  padding: 20rpx;
+}
