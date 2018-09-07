@@ -43,18 +43,29 @@
     </view>
     <view class="input_one">
       <text class="report_one_txt" decode='{{true}}'>单位:</text>
-      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
-        <input type="text" class="report_one_input" placeholder='请选择单位' placeholder-class="ph_class" disabled="true" value="{{unit}}"></input>
+      <picker bindchange="bindUnitPickerChange" value="{{unitShowIndex}}" range="{{unitShowList}}">
+        <input type="text" class="report_one_input" placeholder='请选择单位' placeholder-class="ph_class" disabled="true" value="{{unitValue}}"></input>
       </picker>
     </view>
-    <view class="input_one">
+    <view class="input_one" bindtap='fixClickListner'>
       <text class="report_one_txt" decode='{{true}}'>维修人员姓名:</text>
-      <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}">
-        <input type="text" class="report_one_input" placeholder='请选择维修人员' placeholder-class="ph_class" disabled="true" value="{{fixName}}"></input>
-      </picker>
+      <!-- <picker bindchange="bindCasPickerChange" value="{{casIndex}}" range="{{casArray}}"> -->
+      <input type="text" class="report_one_input" placeholder='请选择维修人员' placeholder-class="ph_class" disabled="true" value="{{fixName}}"></input>
+      <!-- </picker> -->
     </view>
   </view>
-  <view class='modal-box'>
-   
+  <view class="modal_box {{isOpen?'modal_box_open':'modal_box_close'}}">
+    <view class='modal_top'>
+      <text class='modal_cancel' bindtap='modalListener' id='modal_cancel'>取消</text>
+      <text class='modal_sure' bindtap='modalListener' id='modal_true'>确认</text>
+    </view>
+    <view class='modal_content'>
+      <checkbox-group bindchange="checkboxChange">
+        <label class='checkbox_label' wx:for="{{fixNameShowList}}">
+          <checkbox value="{{item}}" checked="{{item.checked}}"></checkbox>
+          {{item}}
+        </label>
+      </checkbox-group>
+    </view>
   </view>
 </view>
